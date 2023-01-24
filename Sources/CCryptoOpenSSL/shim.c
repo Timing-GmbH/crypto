@@ -1,6 +1,6 @@
 #include "include/c_crypto_openssl.h"
 
-#if (OPENSSL_VERSION_NUMBER < 0x10100000L) || defined(LIBRESSL_VERSION_NUMBER)
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L) || (defined(LIBRESSL_VERSION_NUMBER) && LIBRESSL_VERSION_NUMBER < 0x30500000L)
 EVP_MD_CTX *EVP_MD_CTX_new(void) {
     return EVP_MD_CTX_create();
 };
